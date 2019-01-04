@@ -1,11 +1,9 @@
+require_relative 'instance_counter'
+
 class Car
+  include InstanceCounter
+
   attr_accessor :current_rpm
-
-  @@instances = 0
-
-  def self.instances
-    @@instances
-  end
 
   def self.debugger(log)
     puts "!!! DEBUG: #{log} !!!"
@@ -15,7 +13,7 @@ class Car
 
   def initialize
     @current_rpm = 0
-    @@instances += 1
+    register_instance
   end
 
   def start_engine
