@@ -1,5 +1,3 @@
-require 'spec_helper'
-
 RSpec.describe Train do
   let!(:train) { Train.new('123') }
   let!(:wagon) { Wagon.new('1') }

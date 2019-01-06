@@ -1,10 +1,8 @@
-require 'spec_helper'
-
 RSpec.describe Calculator do
   let!(:calculator) { Calculator.new }
 
   describe '#sum' do
-    it 'returns the sum of arguments' do
+    it 'returns the sum of two arguments' do
       expect(calculator.sum(10, 5)).to eq 15
     end
   end
