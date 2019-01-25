@@ -1,2 +1,4 @@
 /solutions
 test.rb
+*.json
+*.txt
