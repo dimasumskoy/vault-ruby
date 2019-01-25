@@ -14,7 +14,7 @@
 #
 # See http://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 
-Dir['./lesson_5/*.rb'].each { |file| require file }
+Dir['../lesson_5/*.rb'].each { |file| require file }
 
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
