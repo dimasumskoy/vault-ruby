@@ -3,22 +3,29 @@ require 'json'
 require 'awesome_print'
 
 class Table
-  def get_data(url)
-    uri = URI(url)
+  attr_accessor :url
+
+  def initialize(url, auth_token = '')
+    @url = url
+    @auth_token = auth_token
+  end
+
+  def get_data
+    uri = URI(@url)
     set_connection(uri)
 
     req = Net::HTTP::Get.new(uri)
-    req['Authorization'] = "Bearer #{API_KEY}"
+    req['Authorization'] = "Bearer #{@auth_token}"
 
     parse_response(req)
   end
 
-  def post_data(url, body)
-    uri = URI(url)
+  def post_data(body)
+    uri = URI(@url)
     set_connection(uri)
 
     req = Net::HTTP::Post.new(uri)
-    req['Authorization'] = "Bearer #{API_KEY}"
+    req['Authorization'] = "Bearer #{@auth_token}"
     req['Content-Type']  = "application/json"
     req.body             = body.to_json
 

@@ -1,6 +1,5 @@
 require 'sinatra/base'
 require 'securerandom'
-require 'pry'
 require 'json'
 
 class Api < Sinatra::Application
@@ -26,21 +25,19 @@ class Api < Sinatra::Application
     authenticate!
 
     content_type :json
-    get_users_info
+    read_users_data
   end
 
   post '/api/create_user' do
     authenticate!
 
-    new_record  = request.body.read
+    new_record = request.body.read
     record_data = JSON.parse(new_record)
 
-    records = JSON.parse(get_users_info)
+    records = JSON.parse(read_users_data)
     records['records'] << record_data
 
-    File.open('users.json', 'w') do |f|
-      f.write(records.to_json)
-    end
+    save_users_data(records)
   end
 
   get '/api/token' do
@@ -49,7 +46,13 @@ class Api < Sinatra::Application
 
   private
 
-  def get_users_info
+  def save_users_data(data)
+    File.open('users.json', 'w') do |f|
+      f.write(data.to_json)
+    end
+  end
+
+  def read_users_data
     File.read('users.json')
   end
 
@@ -57,6 +60,5 @@ class Api < Sinatra::Application
     'This is my first API!'
   end
 
-  # run app
   run! if app_file == $0
 end
