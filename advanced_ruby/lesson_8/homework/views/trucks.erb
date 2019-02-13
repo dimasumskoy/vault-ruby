@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Car App</title>
+  </head>
+  <body>
+    <h3>Create a truck</h3>
+
+    <form action='trucks' method='post'>
+      <div>
+        <label for="number">Number:</label>
+        <input type="text" id="truck_number" name="number">
+      </div>
+
+      <div>
+        <label for="color">Color:</label>
+        <input type="text" id="truck_color" name="color">
+      </div>
+
+      <div>
+        <label for="release_year">Trailer volume:</label>
+        <input type="number" id="truck_trailer_volume" name="trailer_volume">
+      </div>
+
+      <input type="submit">
+    </form>
+
+    <h3>Trucks</h3>
+    <table border="1" style="border-collapse: collapse;">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Number</th>
+          <th>Color</th>
+          <th>Trailer volume</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @trucks.each do |truck| %>
+          <tr>
+            <td><%= truck.id %></td>
+            <td><%= truck.number %></td>
+            <td><%= truck.color %></td>
+            <td><%= truck.trailer_volume %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+
+  </body>
+</html>
