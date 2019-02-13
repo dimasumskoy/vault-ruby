@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='UTF-8' />
+    <title>Car App</title>
+  </head>
+  <body>
+    <h3>Car #<%= @car.number %></h3>
+
+    <form action="/cars/<%= @car.id %>" method="post">
+      <input type="hidden" name="_method" value="patch">
+
+      <div>
+        <label for="number">Number:</label>
+        <input type="text" id="car_number" name="number">
+      </div>
+
+      <div>
+        <label for="color">Color:</label>
+        <input type="text" id="car_color" name="color">
+      </div>
+
+      <div>
+        <label for="release_year">Year of release:</label>
+        <input type="number" id="car_release_year" name="release_year">
+      </div>
+
+      <input type="submit">
+    </form>
+  </body>
+</html>
