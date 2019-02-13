@@ -48,6 +48,7 @@ class App < Sinatra::Application
     redirect :cars
   end
 
+  # delete resource
   delete '/cars/:id' do
     params.delete(:_method)
 
