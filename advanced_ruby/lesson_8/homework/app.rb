@@ -10,7 +10,7 @@ class App < Sinatra::Application
     database: 'final_task_app',
     pool: 2,
     username: 'postgres',
-    password: ''
+    password: '34521'
   }
 
   get '/cars' do
