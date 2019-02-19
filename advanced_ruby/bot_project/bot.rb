@@ -1,10 +1,9 @@
 require 'telegram/bot'
 require 'net/http'
 require 'json'
-require 'pry'
 
 class RailwaysBot
-  TOKEN    = '794074511:AAFbclC2Bkac51Pw6LCzrsBiFlUt7uc8Kr0'
+  TOKEN    = ENV['TEST_BOT_TOKEN']
   API_HOST = 'http://localhost:4567/api'
 
   def run
